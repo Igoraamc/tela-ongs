@@ -9,10 +9,10 @@ import android.widget.TextView;
 import java.util.List;
 
 public class CustomAdapterOngs extends BaseAdapter {
-    private List<String> ongs;
+    private ArrayOngs ongs;
     private Activity act;
 
-    public CustomAdapterOngs(List<String> ongs, Activity act) {
+    public CustomAdapterOngs(ArrayOngs ongs, Activity act) {
         this.ongs = ongs;
         this.act = act;
     }
@@ -35,16 +35,23 @@ public class CustomAdapterOngs extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = act.getLayoutInflater().inflate(R.layout.listview_ong, parent, false);
-        final String ong = ongs.get(position);
+        final ObjOng ong = ongs.get(position);
+        final String ongNome = ong.getNome();
+        final String ongPhone = ong.getTel();
+        final String ongEnd = ong.getEnd();
+        final String ongAcao = ong.getAcao();
 
         TextView ongName = view.findViewById(R.id.nomeOng);
-        ongName.setText(ong);
+        ongName.setText(ongNome);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent launchActivity = new Intent(act , Ong.class);
-                launchActivity.putExtra("nomeOng", ong);
+                Intent launchActivity = new Intent(act , MapsActivity.class);
+                launchActivity.putExtra("ongNome", ongNome);
+                launchActivity.putExtra("ongPhone", ongPhone);
+                launchActivity.putExtra("ongEnd", ongEnd);
+                launchActivity.putExtra("ongAcao", ongAcao);
                 act.startActivity(launchActivity);
             }
         });
