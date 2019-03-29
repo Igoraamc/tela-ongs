@@ -39,7 +39,7 @@ public class CustomAdapterOngs extends BaseAdapter {
         final String ongNome = ong.getNome();
         final String ongPhone = ong.getTel();
         final String ongEnd = ong.getEnd();
-        final String ongAcao = ong.getAcao();
+        final AcaoOng ongAcao = ong.getAcao();
 
         TextView ongName = view.findViewById(R.id.nomeOng);
         ongName.setText(ongNome);
@@ -51,7 +51,8 @@ public class CustomAdapterOngs extends BaseAdapter {
                 launchActivity.putExtra("ongNome", ongNome);
                 launchActivity.putExtra("ongPhone", ongPhone);
                 launchActivity.putExtra("ongEnd", ongEnd);
-                launchActivity.putExtra("ongAcao", ongAcao);
+                launchActivity.putExtra("ongNomeAcao", ongAcao.getNome());
+                launchActivity.putExtra("ongDataAcao", ongAcao.getDataEHora());
                 act.startActivity(launchActivity);
             }
         });

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ObjOng ong;
+        AcaoOng ongAcoes;
         ArrayOngs allOngs = new ArrayOngs();
 
         ListView listaDeOngs = findViewById(R.id.lista1);
@@ -29,10 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> ongsEnd = new ArrayList<>(Arrays.asList("Av. Advogado José Paulo Cavalcanti, 155", "Rua Marques Amorim, 356", "Av. Conselheiro Aguiar, 1748", "R. dos Coelhos, 317", "Rua Alto do Refúgio, 468", "R. Mamede Coelho, 53", "Av. Prof. Luís Freire, 700", "Rua da Aurora, 212"));
 
-        List<String> ongsAcao = new ArrayList<>(Arrays.asList("Promove ações com o intuito de tratar, reabilitar e reintegrar à sociedade crianças, adolescentes e adultos portadores de deficiência física.", "Promove ações que estimulam a mobilização de pessoas em prol do bem comum.", "Organização cristã de desenvolvimento e resposta às situações de emergência.", "Organização que possibilita a criação de estratégias de responsabilidade social e projetos, acelerando áreas de desenvolvimento humano.", "Promove o direito à cidadania para milhares de crianças e jovens através de trabalhos sociais.", "Organização que desenvolve diversas atividades voltadas para crianças, adolescentes, jovens e adultos.", "Organização que recicla utensílios descartados pela população para manter bazar destinado a famílias carentes.", "Organização que busca oferecer soluções tecnológicas e multidisciplinares para os mais diversos setores produtivos.", "Representam artistas comprometidos em levar poesia e emoção ao público através da sua arte. "));
+        List<String> ongsAcao = new ArrayList<>(Arrays.asList("Tratar, reabilitar e reintegrar à sociedade crianças, adolescentes e adultos portadores de deficiência física.;15/04/2019 - 16h", "Estimular a mobilização de pessoas em prol do bem comum.;19/07/2019 - 12h", "Desenvolver cuidados em situações de emergência.;12/12/2019 - 13h", "Criar projetos para áreas de desenvolvimento humano.;31/03/2019 - 20h", "Procurar trabalhos sociais.;15/08/2019 - 8h", "Atividades publicas.;13/11/2019 - 10h", "Arrecadação de itens.;20/4/2019 - 10h", "Educação digital.;06/06/2019 - 18h", "Aula de dança.;24/12/2019 - 14h"));
 
         for(int i=0;i<(ongs.size()-1);i++) {
-            ong = new ObjOng(ongs.get(i), ongsPhone.get(i), ongsEnd.get(i), ongsAcao.get(i));
+            String acao = ongsAcao.get(i).split(";")[0];
+            String dataEHora = ongsAcao.get(i).split(";")[1];
+            ongAcoes = new AcaoOng(acao, dataEHora);
+
+            ong = new ObjOng(ongs.get(i), ongsPhone.get(i), ongsEnd.get(i), ongAcoes);
             allOngs.add(ong);
         }
 

@@ -4,9 +4,9 @@ public class ObjOng {
     private String nome;
     private String tel;
     private String end;
-    private String acao;
+    private AcaoOng acao;
 
-    public ObjOng(String nome, String tel, String end, String acao) {
+    public ObjOng(String nome, String tel, String end, AcaoOng acao) {
         this.nome = nome;
         this.tel = tel;
         this.end = end;
@@ -37,11 +37,7 @@ public class ObjOng {
         this.end = end;
     }
 
-    public String getAcao() {
+    public AcaoOng getAcao() {
         return acao;
-    }
-
-    public void setAcao(String acao) {
-        this.acao = acao;
     }
 }

@@ -31,11 +31,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final TextView textView3 = findViewById(R.id.textView3);
         final TextView textView4 = findViewById(R.id.textView4);
         final TextView textView5 = findViewById(R.id.textView5);
+        final TextView textView6 = findViewById(R.id.textView6);
 
         textView2.setText(getIntent().getExtras().getString("ongNome"));
         textView3.setText(getIntent().getExtras().getString("ongPhone"));
         textView4.setText(getIntent().getExtras().getString("ongEnd"));
-        textView5.setText(getIntent().getExtras().getString("ongAcao"));
+        textView5.setText("Ação: "+getIntent().getExtras().getString("ongNomeAcao"));
+        textView6.setText("Data e Hora: "+getIntent().getExtras().getString("ongDataAcao"));
 
         final String phone_no = textView3.getText().toString().replaceAll("[\\.$|\\s+|(|)|-]", "");
         System.out.println(phone_no);
